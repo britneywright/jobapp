@@ -1,0 +1,36 @@
+<div class="col-lg-12">
+<%= form_for([@user, @job]) do |f| %>
+<div class="col-lg-4">
+  <div class="form-group">
+    <%= f.label :position %><br>
+    <%= f.text_field :position, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :company %><br>
+    <%= f.text_field :company, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :date_applied %><br>
+    <%= f.date_field :date_applied, class: "form-control", input: "date" %>
+  </div>  
+  <div class="form-group">
+    <%= f.label :link %><br>
+    <%= f.text_field :link, class: "form-control" %>
+  </div>
+</div>  
+<div class="col-lg-8">    
+  <div class="form-group">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, class: "form-control", rows: "5" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes, class: "form-control",  rows: "5" %>
+  </div>       
+</div>
+  <div class="col-lg-12">
+      <%= f.submit "Submit", class: "btn btn-large btn-primary" %>    
+  </div>
+<% end %>
+</div>

@@ -1,0 +1,7 @@
+<h2>Interviews</h2>
+<% @interviews.each do |interview| %>
+<h3><%= link_to interview.kind, interview_path(interview) %></h3>
+<p><%= interview.job.position %></p>
+<p><%= interview.date_interviewed %></p>
+<% end %>
+<%= link_to "New Interview", new_job_interview_path %>

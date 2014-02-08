@@ -1,0 +1,8 @@
+<h2>Jobs</h2>
+<% @jobs.each do |job| %>
+<h3><%= link_to job.position, job %> - <%= job.company %></h3>
+<p>Applied: <%= job.date_applied %></p>
+<% end %>
+<div class="col-lg-12">
+<%= link_to "New Job", new_user_job_path %>
+</div>
