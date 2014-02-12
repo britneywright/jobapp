@@ -1,7 +1,23 @@
-<h2>Jobs</h2>
+<div class= "col-lg-9">
+	<h2>Your Jobs</h2>
+</div>
+<div class="col-lg-3">
+	<span id="newJobButton"><%= link_to "Add a New Job", new_user_job_path, class: "btn btn-warning btn" %></span>
+</div>  
 <% @jobs.each do |job| %>
-<h3><%= link_to job.position, job %> - <%= job.company %></h3>
-<p>Applied: <%= job.date_applied %></p>
+<div class="col-lg-12">
+	<div class="col-lg-8">
+		<h3><%= link_to job.position, job %>: <%= job.company %></h3>
+		<p>Applied: <%= job.date_applied %></p>
+	</div>
+	<div class="col-lg-4">
+		<h4>Interviews</h4>
+			<% job.interviews.each do |interview| %>
+			<p><%= link_to interview.kind, interview %> - <%= interview.date_interviewed %></p>
+			<% end %>
+	</div>
+			<hr>
+</div>
 <% end %>
 <div class="col-lg-12">
 <%= link_to "New Job", new_user_job_path %>

@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe Job do
-	before do
 		let(:job) { FactoryGirl.create(:job) }
-	end
 
 	it { should respond_to(:position) }
 	it { should respond_to(:company) }

@@ -62,7 +62,6 @@ h4 {
 /* Paragraph & Typographic */
 p {
     line-height: 28px;
-    margin-bottom: 25px;
     font-size: 16px;
 }
 
@@ -168,4 +167,9 @@ i {
 	font-size: 45px;
 	font-weight: 300;
 	letter-spacing: 1px;
+}
+
+/* Job Pages */
+#newJobButton {
+    align: bottom;
 }

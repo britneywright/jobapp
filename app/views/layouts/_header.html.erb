@@ -12,6 +12,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li><%= render 'devise/menu/registration_items' %></li>
   <li><%= render 'devise/menu/login_items' %></li>
+  <li><%= link_to "Your Jobs", user_jobs_path(current_user) %></li>
     </ul>
   </div><!--/.nav-collapse -->
 </div>
