@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20140207174636) do
 
   create_table "interviews", force: true do |t|
-    t.datetime "date"
+    t.date     "date_interviewed"
     t.string   "kind"
     t.text     "notes"
     t.integer  "job_id"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20140207174636) do
   create_table "jobs", force: true do |t|
     t.string   "position"
     t.string   "company"
-    t.datetime "date_applied"
+    t.date     "date_applied"
     t.string   "link"
     t.text     "description"
     t.text     "notes"
