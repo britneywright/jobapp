@@ -4,9 +4,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 gem 'devise'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.1.0'
@@ -30,6 +27,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'capybara'
   gem 'factory_girl_rails'
@@ -41,6 +39,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :production do
+  gem 'pg', '0.17.1'
+  gem 'rails_12factor', '0.0.2'
+end  
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
