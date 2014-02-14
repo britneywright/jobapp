@@ -4,7 +4,7 @@
 			<div class="col-lg-8">
 				<h1>Welcome to the Job Apps App</h1>
 				<h2>Track your applications and interviews<h2>
-					<% if signed_in? %>
+					<% if user_signed_in? %>
 				  	<%= link_to "View Jobs", user_jobs_path(current_user), class: "btn btn-warning btn-lg" %>
 				  	<%= link_to "Track a new job application", new_user_job_path(current_user), class: "btn btn-warning btn-lg" %>
 					<% else %>
