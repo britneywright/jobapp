@@ -173,3 +173,16 @@ i {
 #newJobButton {
     align: bottom;
 }
+
+.job:nth-child(even):after {
+    content: '\2667';
+} 
+
+/* Date Picker */
+.better-dateinput {
+    text-align: left;
+}
+
+.better-dateinput-calendar {
+    margin-left: 0;
+}

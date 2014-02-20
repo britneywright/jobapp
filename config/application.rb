@@ -26,5 +26,6 @@ module Jobapp
                                     fontawesome-webfont.svg,
                                     fontawesome-webfont.ttf,
                                     fontawesome-webfont.woff)    
+    config.assets.paths<< Rails.root.join('vendor', 'assets', 'components')  
   end
 end

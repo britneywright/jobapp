@@ -5,7 +5,7 @@
 	<span id="newJobButton"><%= link_to "Add a New Job", new_user_job_path, class: "btn btn-warning btn" %></span>
 </div>  
 <% @jobs.each do |job| %>
-<div class="col-lg-12">
+<div class="job col-lg-12">
 	<div class="col-lg-8">
 		<h3><%= link_to job.position, job %>: <%= job.company %></h3>
 		<p>Applied: <%= job.date_applied %></p>

@@ -13,5 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require better-dom/dist/better-dom
+//= require better-dateinput-polyfill/dist/better-dateinput-polyfill
 //= require turbolinks
 //= require_tree .
