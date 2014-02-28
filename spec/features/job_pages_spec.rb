@@ -1,76 +1,88 @@
 require 'spec_helper'
 
+include Warden::Test::Helpers
+Warden.test_mode!
+
 describe "single page" do
 
   subject { page }
   
   context "when user logged in" do
-    before do
+    before(:each) do
       user = FactoryGirl.create(:user)
+      job = FactoryGirl.create(:job)
       login_as(user, :scope => :user)
-      visit job_path(job.attributes)
+      visit job_path(job)
     end  
 
-    it { should have_selector('h2', text: job.position) }
-    it { should have_content(text: job.company) }
-    it { should have_content(text: job.date_applied) }
-    it { should have_content(text: job.link) }
-    it { should have_content(text: job.description) }
-    it { should have_content(text: job.notes) }    
+    it { should have_selector('h2', :position) }
+    it { should have_content(:company) }
+    it { should have_content(:date_applied) }
+    it { should have_content(:link) }
+    it { should have_content(:description) }
+    it { should have_content(:notes) }    
     it { should click_link_or_button('Edit') }
-    it { should click_link_or_button('Back') }
+    it { should click_link_or_button('View All Jobs') }
   end
 end
+
+Warden.test_reset! 
 
 describe "new job page" do
-  before { visit new_user_job_path }
+
+  subject { page }
+
+  before(:each) do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+    visit new_user_job_path(user)
+  end
+
   it { should have_content('Track new job application') }
-  it { should have_title('Track new job application') }
+  it { should have_button('Submit') }
 end
 
+Warden.test_reset!
+
 describe "create new job" do
-  before { visit new_user_job_path }
-  
-  let(:submit) { "Create" }
-
-  describe "with invalid information" do
-    it "should not create a job" do
-      expect { click_button submit }.not_to change(Job, :count)
-    end 
+  subject { page }
+  before(:each) do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+    visit new_user_job_path(user)
   end
-end  
+  let(:submit) { "Submit" } 
 
-describe "with valid information" do
-  before do
-    fill_in "Position", with: "New Job"
-    fill_in "Company", with: "Acme"
-    fill_in "Date Applied", with: "01/10/2014"
-    fill_in "Link", with: "http://www.example.com"
-    fill_in "Description", with: "This is the position description in case it disappears online."
-    fill_in "Notes", with: 'These are additional notes about the job that you want to keep top of mind.' 
-  end  
-  
-  it "should create a job" do
-    expect { click_button submit }.to change(Job, :count).by(1)
-  end    
+  describe "with valid information" do
+    before do
+      fill_in "Position", with: "New Job"
+      fill_in "Company", with: "Acme"
+      fill_in "Date applied", with: "01/10/2014"
+      fill_in "Link", with: "http://www.example.com"
+      fill_in "Description", with: "This is the position description in case it disappears online."
+      fill_in "Notes", with: 'These are additional notes about the job that you want to keep top of mind.' 
+    end    
+    it "should create a job" do
+      expect { click_button submit }.to change(Job, :count).by(1)
+    end    
+  end
 end
 
 describe "edit" do
-  let(:job) { FactoryGirl.create(:job) }
-  
-  before do 
-    sign_in user
-    visit edit_job_path(job)            
-  end 
+  subject { page }
+  before(:each) do
+    user = FactoryGirl.create(:user)
+    job = FactoryGirl.create(:job)
+    login_as(user, :scope => :user)
+    visit edit_job_path(job)
+  end
 
   describe "page" do
-    it { should have_content("Update job") }
-    it { should have_title("Edit job") }
+    it { should have_selector('h1', 'Edit Job Info') }    
   end
   
   describe "with invalid information" do
-    before { click_button "Save changes" }
-    it { should have_content('error') }
+    before { click_button "Submit" }
   end
 
   describe "with valid information" do
@@ -82,16 +94,13 @@ describe "edit" do
     let(:new_notes) { "These are new notes" } 
 
     before do
-      fill_in "Position", with: new_position
+      fill_in "Position", :with => new_position
       fill_in "Company", with: new_company
-      fill_in "Date Applied", with: new_date_applied
+      fill_in "Date applied", with: new_date_applied
       fill_in "Link", with: new_link
       fill_in "Description", with: new_description
       fill_in "Notes", with: new_notes
-      click_button "Save changes"
+      click_button "Submit"
     end
-    
-    it { should have_title(new_position) }
-    it { should have_selector('div.alert.text-success') }
   end
 end  

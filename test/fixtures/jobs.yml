@@ -1,0 +1,9 @@
+one:
+  id: 1
+  position: Web Developer
+  company: GEW
+  date_applied: 02-04-2014
+  link: http://www.gew.co
+  description: Something to describe the job
+  notes: Some notes about the job
+  user_id: 1
