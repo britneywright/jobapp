@@ -1,6 +1,5 @@
-<div class="col-lg-12">
 <%= form_for([@user, @job]) do |f| %>
-<div class="col-lg-4">
+<div class="col-lg-8">  
   <div class="form-group">
     <%= f.label :position %><br>
     <%= f.text_field :position, class: "form-control" %>
@@ -16,9 +15,7 @@
   <div class="form-group">
     <%= f.label :link %><br>
     <%= f.text_field :link, class: "form-control" %>
-  </div>
-</div>  
-<div class="col-lg-8">    
+  </div>  
   <div class="form-group">
     <%= f.label :description %><br>
     <%= f.text_area :description, class: "form-control", rows: "5" %>
@@ -27,26 +24,25 @@
     <%= f.label :notes %><br>
     <%= f.text_area :notes, class: "form-control",  rows: "5" %>
   </div>       
-</div>
+  <h4>Contact Info</h4>
   <div class="form-group">
-    <%= f.label :contact_name %><br>
+    <%= f.label :contact_name, "Name" %><br>
     <%= f.text_field :contact_name, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :contact_email %><br>
-    <%= f.text_area :contact_email, class: "form-control",  rows: "3" %>
-  </div>    
+    <%= f.label :contact_email, "Email" %><br>
+    <%= f.text_field :contact_email, class: "form-control" %>
+  </div>
   <div class="form-group">
-    <%= f.label :contact_address %><br>
+    <%= f.label :contact_phone, "Phone Number" %><br>
+    <%= f.telephone_field :contact_phone, class: "form-control" %>
+  </div>        
+  <div class="form-group">
+    <%= f.label :contact_address, "Address" %><br>
     <%= f.text_area :contact_address, class: "form-control",  rows: "3" %>
   </div>  
-  <div class="form-group">
-    <%= f.label :contact_phone %><br>
-    <%= f.telephone_field :contact_phone, class: "form-control" %>
-  </div>       
+</div>         
+<div class="col-lg-12">
+    <%= f.submit "Submit", class: "btn btn-large btn-primary" %>    
 </div>
-  <div class="col-lg-12">
-      <%= f.submit "Submit", class: "btn btn-large btn-primary" %>    
-  </div>
 <% end %>
-</div>

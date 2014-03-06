@@ -1,28 +1,28 @@
-<div class="main">
 <h2><%= @job.position %></h2>
-<h3><%= @job.company %> | Applied: <%= @job.date_applied %></h3>
-<h4>Description</h4>
-<p><%= simple_format @job.description %></p>
-<h4>Notes</h4>
-<p><%= simple_format @job.notes %></p>
-<h4>Website</h4>
-<p><%= link_to @job.link, @job.link %></p>
-<h4>Interviews</h4>
-<ul>
-	<% @job.interviews.each do |interview| %>
-	<li><%= link_to interview.kind, interview_path(interview) %> <%= interview.date_interviewed %></li>
-	<% end %>
-</ul>
+<div class="col-lg-8">
+  <h3><%= @job.company %> | Applied: <%= @job.date_applied %></h3>
+  <h4>Description</h4>
+  <p><%= simple_format @job.description %></p>
+  <h4>Notes</h4>
+  <p><%= simple_format @job.notes %></p>
+  <h4>Website</h4>
+  <p><%= link_to @job.link, @job.link %></p>
+  <h4>Interviews</h4>
+  <ul>
+	  <% @job.interviews.each do |interview| %>
+	  <li><%= link_to interview.kind, interview_path(interview) %> <%= interview.date_interviewed %></li>
+	  <% end %>
+  </ul>
 </div>
-<aside>
-  <h4>Contact</h4>
-<p><%= @job.contact_name %></p>
+<aside class="col-lg-4"> 
+  <h3>Contact</h3>
+  <p><%= @job.contact_name %></p>
   <h4>Email</h4>
-<p><%= @job.contact_email %></p>
-<h4>Address</h4>
-<p><%= simple_format @job.contact_address %></p>
-<h4>Phone Number</h4>
-<p><%= simple_format @job.contact_phone %></p>
+  <p><%= @job.contact_email %></p>
+  <h4>Phone Number</h4>
+  <p><%= simple_format @job.contact_phone %></p>  
+  <h4>Address</h4>
+  <p><%= simple_format @job.contact_address %></p>
 </aside>
 <small><%= link_to "View All Jobs", user_jobs_path(@job.user_id) %> | 
 <%= link_to "Add a new interview", new_job_interview_path(@job) %>

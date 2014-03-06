@@ -65,10 +65,10 @@ describe "create new job" do
       fill_in "Link", with: "http://www.example.com"
       fill_in "Description", with: "This is the position description in case it disappears online."
       fill_in "Notes", with: 'These are additional notes about the job that you want to keep top of mind.' 
-      fill_in "Contact name", with: "Joe Smith"
-      fill_in "Contact address", with: "45 Apple Court"
-      fill_in "Contact phone", with: "123-456-7891"
-      fill_in "Contact email", with: "joe@smith.com"
+      fill_in "Name", with: "Joe Smith"
+      fill_in "Address", with: "45 Apple Court"
+      fill_in "Phone Number", with: "123-456-7891"
+      fill_in "Email", with: "joe@smith.com"
     end    
     it "should create a job" do
       expect { click_button submit }.to change(Job, :count).by(1)
