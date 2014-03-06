@@ -10,5 +10,8 @@ describe Job do
 	it { should respond_to(:description) }
 	it { should respond_to(:notes)}
 	it { should respond_to(:user_id) }
-
+  it { should respond_to(:contact_name) }
+  it { should respond_to(:contact_phone) }
+  it { should respond_to(:contact_address) }
+  it { should respond_to(:contact_email) }
 end
