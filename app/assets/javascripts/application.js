@@ -15,5 +15,6 @@
 //= require bootstrap
 //= require better-dom/dist/better-dom
 //= require better-dateinput-polyfill/dist/better-dateinput-polyfill
+//= require better-timeinput-polyfill/dist/better-timeinput-polyfill
 //= require turbolinks
 //= require_tree .

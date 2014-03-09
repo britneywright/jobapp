@@ -1,0 +1,30 @@
+{
+  "name": "better-timeinput-polyfill",
+  "version": "1.1.1",
+  "main": [
+    "dist/better-timeinput-polyfill.js",
+    "dist/better-timeinput-polyfill.css"
+  ],
+  "ignore": [
+    ".*",
+    "src",
+    "test"
+  ],
+  "keywords": [
+    "better-dom"
+  ],
+  "dependencies": {
+    "better-dom": "~1.6.4"
+  },
+  "homepage": "https://github.com/chemerisuk/better-timeinput-polyfill",
+  "_release": "1.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.1.1",
+    "commit": "9a99f6cd980bf687a48f3eaf2b9680e7f28d41dd"
+  },
+  "_source": "git://github.com/chemerisuk/better-timeinput-polyfill.git",
+  "_target": "~1.1.1",
+  "_originalSource": "better-timeinput-polyfill",
+  "_direct": true
+}

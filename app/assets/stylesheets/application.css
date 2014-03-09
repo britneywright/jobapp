@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require better-dateinput-polyfill/dist/better-dateinput-polyfill
+ *= require better-timeinput-polyfill/dist/better-timeinput-polyfill
  *= require_self
  *= require_tree .
  */

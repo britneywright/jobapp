@@ -17,8 +17,8 @@
   <%= date.day %>
   <% if @interviews_by_date[date] %>
     <ul>
-      <% @interviews_by_date[date].each do |interview| %>
-        <li><%= link_to interview.job.company, interview %></li>
+      <% @interviews_by_date[date].sort_by! {|i| i.interview_time }.each do |interview| %>
+        <li><%= interview.interview_time %>: <%= link_to interview.job.company, interview %> (<%= interview.kind %>)</li>
       <% end %>
     </ul>  
   <% end %>

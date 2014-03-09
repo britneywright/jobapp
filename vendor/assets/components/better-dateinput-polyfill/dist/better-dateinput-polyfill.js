@@ -58,9 +58,9 @@
                         result = "";
                     }
 
-                    month = value.getMonth();
-                    date = value.getDate();
-                    year = value.getFullYear();
+                    month = value.getUTCMonth();
+                    date = value.getUTCDate();
+                    year = value.getUTCFullYear();
 
                     if (typeof result !== "string") {
                         result = ampm(month + 1, date) + "/" + ampm(date, month + 1) + "/" + year;
@@ -78,17 +78,17 @@
 
                 iterDate = new Date(year, month, 0, 12);
                 // move to beginning of current month week
-                iterDate.setDate(iterDate.getDate() - iterDate.getDay() - ampm(1, 0));
+                iterDate.setDate(iterDate.getUTCDate() - iterDate.getDay() - ampm(1, 0));
                 // update day numbers
                 days.set("class", function(day) {
-                    iterDate.setDate(iterDate.getDate() + 1);
+                    iterDate.setDate(iterDate.getUTCDate() + 1);
 
                     var mDiff = month - iterDate.getMonth(),
-                        dDiff = date - iterDate.getDate();
+                        dDiff = date - iterDate.getUTCDate();
 
                     if (year !== iterDate.getFullYear()) mDiff *= -1;
 
-                    day.data("ts", iterDate.getTime()).set(iterDate.getDate());
+                    day.data("ts", iterDate.getTime()).set(iterDate.getUTCDate());
 
                     return mDiff ?
                         (mDiff > 0 ? "prev-calendar-day" : "next-calendar-day") :
@@ -139,7 +139,7 @@
                     } else if (shiftKey && (which === 37 || which === 39)) {
                         currentDate.setMonth(currentDate.getMonth() + (delta > 0 ? 1 : -1));
                     } else {
-                        currentDate.setDate(currentDate.getDate() + delta);
+                        currentDate.setDate(currentDate.getUTCDate() + delta);
                     }
 
                     dateinput.set(formatISODate(currentDate));

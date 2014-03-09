@@ -1,24 +1,31 @@
-<div class= "col-lg-9">
-	<h2>Your Jobs</h2>
+<div class="col-lg-12">
+  <div class= "col-lg-9">
+	  <h2>Your Jobs</h2>
+  </div>
+  <div class="col-lg-3">
+	  <span id="newJobButton"><%= link_to "Add a New Job", new_user_job_path, class: "btn btn-warning btn" %></span>
+  </div>  
 </div>
-<div class="col-lg-3">
-	<span id="newJobButton"><%= link_to "Add a New Job", new_user_job_path, class: "btn btn-warning btn" %></span>
-</div>  
+<div id=jobIndex class="col-lg-12">
 <% @jobs.each do |job| %>
-<div class="job col-lg-12">
 	<div class="col-lg-8">
 		<h3><%= link_to job.position, job %>: <%= job.company %></h3>
 		<p>Applied: <%= job.date_applied %></p>
 	</div>
 	<div class="col-lg-4">
+    <% if job.interviews.count == 0 %>
+    <% else %>
 		<h4>Interviews</h4>
-			<% job.interviews.each do |interview| %>
+			<% job.interviews.sort_by! {|i| i.date_interviewed }.each do |interview| %>
 			<p><%= link_to interview.kind, interview %> - <%= interview.date_interviewed %></p>
 			<% end %>
+    <% end %>  
 	</div>
-			<hr>
-</div>
+	<div class="col-lg-12">
+		<hr>
+	</div>
 <% end %>
+</div>
 <div class="col-lg-12">
 <%= link_to "New Job", new_user_job_path %>
 </div>

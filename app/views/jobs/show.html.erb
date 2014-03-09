@@ -13,12 +13,15 @@
   <h4>Website</h4>
   <p><%= link_to @job.link, @job.link %></p>
   <% end %>
+  <% if @job.interviews.count == 0 %>
+  <% else %>
   <h4>Interviews</h4>
   <ul>
-	  <% @job.interviews.each do |interview| %>
+	  <% @job.interviews.sort_by! {|i| i.date_interviewed }.each do |interview| %>
 	  <li><%= link_to "#{interview.kind}: ", interview_path(interview) %> <%= interview.date_interviewed %></li>
 	  <% end %>
   </ul>
+  <% end %>
 </div>
 <% if @job.contact_name? || @job.contact_email? || @job.contact_phone? || @job.contact_address? %>
 <aside class="col-lg-4"> 
