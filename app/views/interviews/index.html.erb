@@ -1,7 +1,27 @@
 <h2>Interviews</h2>
-<% @interviews.each do |interview| %>
-<h3><%= link_to interview.kind, interview_path(interview) %></h3>
-<p><%= interview.job.position %></p>
-<p><%= interview.date_interviewed %></p>
+<div id="interviews" class="col-lg-12">
+<h2 id="month"class="col-lg-12">
+  <span class="col-lg-1">
+  <%= link_to "<", date: @date.prev_week %>
+</span>
+<span class="col-lg-10">
+  <% date_range = @date.beginning_of_week..@date.end_of_week %>
+  <%= date_range.to_s(:condensed) %>
+</span>
+<span class="col-lg-1">
+  <%= link_to ">", date: @date.next_week %>
+</span>
+</h2>
+<div class="table-responsive">
+<%= calendar @date do |date| %>
+  <%= date.day %>
+  <% if @interviews_by_date[date] %>
+    <ul>
+      <% @interviews_by_date[date].each do |interview| %>
+        <li><%= link_to interview.job.company, interview %></li>
+      <% end %>
+    </ul>  
+  <% end %>
 <% end %>
-<%= link_to "New Interview", new_job_interview_path %>
+</div>
+</div>

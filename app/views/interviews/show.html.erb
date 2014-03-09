@@ -1,8 +1,14 @@
-<h2><%= link_to @interview.job.position, job_path(@interview.job_id) %> - <%= @interview.job.company %></h2>
-<h3>Date: <%= @interview.date_interviewed %></h3>
+<div class="col-lg-12">
+<h2>Interview: <%= @interview.date_interviewed %></h2>
+<h3><%= link_to @interview.job.position, job_path(@interview.job_id) %> - <%= @interview.job.company %></h3>
+<p>Time: <%= @interview.interview_time %></p>
 <p>Type: <%= @interview.kind %></p>
+<% if @interview.notes? %>
 <p>Notes: <%= simple_format @interview.notes %></p>
 <%= link_to "View Job", job_path(@interview.job_id) %>
-<br>
+<% end %>
+</div>
+<div class="col-lg-12">
 <small><%= link_to 'Edit', edit_interview_path %> | 
 <%= link_to 'Destroy', interview_path, method: :delete, data: { confirm: 'Are you sure?' } %></small>
+</div>

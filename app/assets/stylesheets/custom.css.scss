@@ -177,10 +177,6 @@ i {
     align: bottom;
 }
 
-.job:nth-child(even):after {
-    content: '\2667';
-} 
-
 /* Date Picker */
 .better-dateinput {
     text-align: left;
@@ -188,4 +184,24 @@ i {
 
 .better-dateinput-calendar {
     margin-left: 0;
+}
+
+/* Interviews Calendar */
+#interviews {
+  #month {
+    text-align: center;
+  }
+  .table-bordered {
+    width: 100%;
+  } 
+  td {
+    vertical-align: top;
+    width: 14%;
+  }
+  ul {
+    display: inline;
+  }
+  li {
+  list-style: none;
+  }
 }

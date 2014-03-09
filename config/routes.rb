@@ -1,7 +1,8 @@
 Jobapp::Application.routes.draw do
   devise_for :users
   root 'static_pages#home'
-  
+  get 'users/:user_id/interviews' => 'interviews#index', as: :interviews
+
   resources :users, shallow: true do
       resources :jobs, shallow: true do
         resources :interviews
