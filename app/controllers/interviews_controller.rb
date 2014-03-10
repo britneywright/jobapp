@@ -3,7 +3,7 @@ class InterviewsController < ApplicationController
   before_filter :authenticate_user!
 
   def index 
-    @interviews = Interview.all
+    @interviews = current_user.interviews
     @interviews_by_date = @interviews.group_by(&:date_interviewed) 
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
@@ -64,6 +64,6 @@ class InterviewsController < ApplicationController
     end 
 
   def interview_params
-    params.require(:interview).permit(:date_interviewed, :kind, :notes, :interview_time, :job_id)
+    params.require(:interview).permit(:date_interviewed, :kind, :notes, :interview_time, :job_id, :user_id)
   end 
 end
