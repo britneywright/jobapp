@@ -4,7 +4,7 @@ Jobapp::Application.routes.draw do
   get 'users/:user_id/interviews' => 'interviews#index', as: :interviews
 
   resources :users, shallow: true do
-      resources :jobs, shallow: true do
+      resources :applications, shallow: true do
         resources :interviews
       end  
   end    

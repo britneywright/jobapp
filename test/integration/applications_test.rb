@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class JobsTest < ActionDispatch::IntegrationTest
+class ApplicationsTest < ActionDispatch::IntegrationTest
 
-  test "Single job page navigation" do
+  test "Single application page navigation" do
     visit root_path
     click_link("Sign Up", match: :first)
     assert_equal new_user_registration_path, current_path  
@@ -17,8 +17,8 @@ class JobsTest < ActionDispatch::IntegrationTest
     fill_in "Password", :with => user.password
     click_on("Sign in")
     assert_equal root_path, current_path
-    click_on("View Jobs")
-    assert_equal user_jobs_path(user), current_path
+    click_on("View Applications")
+    assert_equal user_applications_path(user), current_path
   end
     
 end

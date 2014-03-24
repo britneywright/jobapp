@@ -1,5 +1,5 @@
 FactoryGirl.define do
-	factory :job do
+	factory :application do
 		position "First Job Application"
 		company "Company Name"
 		date_applied "2014-02-06"

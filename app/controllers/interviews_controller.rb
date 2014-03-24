@@ -9,8 +9,8 @@ class InterviewsController < ApplicationController
   end
 
   def create
-    @job = Job.find(params[:job_id])
-    @interview = @job.interviews.new(interview_params)
+    @application = Application.find(params[:application_id])
+    @interview = @application.interviews.new(interview_params)
 
     respond_to do |format|
       if @interview.save
@@ -24,9 +24,9 @@ class InterviewsController < ApplicationController
   end
 
   def new
-      @job = Job.find(params[:job_id])
-      if current_user == @job.user  
-      @interview = @job.interviews.new
+      @application = Application.find(params[:application_id])
+      if current_user == @application.user  
+      @interview = @application.interviews.new
     else
       redirect_to "/"
     end 
@@ -53,7 +53,7 @@ class InterviewsController < ApplicationController
   def destroy
     @interview.destroy
     respond_to do |format|
-      format.html { redirect_to job_url(@interview.job_id) }
+      format.html { redirect_to interviews_url(current_user) }
       format.json { head :no_content }
     end   
   end 
@@ -64,6 +64,6 @@ class InterviewsController < ApplicationController
     end 
 
   def interview_params
-    params.require(:interview).permit(:date_interviewed, :kind, :notes, :interview_time, :job_id, :user_id)
+    params.require(:interview).permit(:date_interviewed, :kind, :notes, :interview_time, :application_id, :user_id)
   end 
 end

@@ -1,4 +1,13 @@
-<%= form_for([@job, @interview]) do |f| %>
+<%= form_for([@application, @interview]) do |f| %>
+<% if @interview.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @interview.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+       </ul>
+       </div>
+       <% end %> 
   <div class="form-group">
     <%= f.label :date_interviewed %><br>
     <%= f.date_field :date_interviewed, class: "form-control" %>

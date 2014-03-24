@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Job do
-		let(:job) { FactoryGirl.create(:job) }
+describe Application do
+	let(:application) { FactoryGirl.build(:application) }
 
 	it { should respond_to(:position) }
 	it { should respond_to(:company) }

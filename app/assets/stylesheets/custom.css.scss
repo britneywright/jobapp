@@ -1,5 +1,9 @@
 @import "bootstrap";
 
+/* mixins, variables, etc. */
+
+$alertColor: #fdb825;
+
 html, body {
   height: 100%;
 }
@@ -140,7 +144,6 @@ i {
 	color: #3498db; 
 }
 
-
 /* HeaderWrap */
 #headerwrap {
 	background-image: url(image-path('background1.jpg'));
@@ -176,6 +179,15 @@ i {
 #jobIndex {
   hr {
   border-top: 1px solid #eee;
+  }
+}
+
+/* Error Messages */
+#error_explanation {
+  ul {
+  list-style: none;
+  font-weight: 700;
+  color: $alertColor;
   }
 }
 

@@ -4,8 +4,8 @@ FactoryGirl.define do
     password "foobar24"
     password_confirmation "foobar24"
 
-    factory :jobs_applied do
-      association :jobs
+    factory :applications_applied do
+      association :applications
     end  
   end
 end  

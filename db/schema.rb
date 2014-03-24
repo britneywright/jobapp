@@ -11,21 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140308210613) do
+ActiveRecord::Schema.define(version: 20140323203004) do
 
-  create_table "interviews", force: true do |t|
-    t.date     "date_interviewed"
-    t.string   "kind"
-    t.text     "notes"
-    t.integer  "job_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.time     "interview_time"
-  end
-
-  add_index "interviews", ["job_id"], name: "index_interviews_on_job_id"
-
-  create_table "jobs", force: true do |t|
+  create_table "applications", force: true do |t|
     t.string   "position"
     t.string   "company"
     t.date     "date_applied"
@@ -41,7 +29,19 @@ ActiveRecord::Schema.define(version: 20140308210613) do
     t.string   "contact_email"
   end
 
-  add_index "jobs", ["user_id"], name: "index_jobs_on_user_id"
+  add_index "applications", ["user_id"], name: "index_applications_on_user_id"
+
+  create_table "interviews", force: true do |t|
+    t.date     "date_interviewed"
+    t.string   "kind"
+    t.text     "notes"
+    t.integer  "application_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.time     "interview_time"
+  end
+
+  add_index "interviews", ["application_id"], name: "index_interviews_on_application_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

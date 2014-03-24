@@ -10,9 +10,9 @@ describe "single page" do
   context "when user logged in" do
     before(:each) do
       user = FactoryGirl.create(:user)
-      job = FactoryGirl.create(:job)
+      application = FactoryGirl.create(:application)
       login_as(user, :scope => :user)
-      visit job_path(job)
+      visit application_path(application)
     end  
 
     it { should have_selector('h2', :position) }
@@ -26,20 +26,20 @@ describe "single page" do
     it { should have_content(:contact_address) }
     it { should have_content(:contact_email) }     
     it { should click_link_or_button('Edit') }
-    it { should click_link_or_button('View All Jobs') }
+    it { should click_link_or_button('View All Applications') }
   end
 end
 
 Warden.test_reset! 
 
-describe "new job page" do
+describe "new application page" do
 
   subject { page }
 
   before(:each) do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
-    visit new_user_job_path(user)
+    visit new_user_application_path(user)
   end
 
   it { should have_content('Track new job application') }
@@ -48,30 +48,30 @@ end
 
 Warden.test_reset!
 
-describe "create new job" do
+describe "create new application" do
   subject { page }
   before(:each) do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
-    visit new_user_job_path(user)
+    visit new_user_application_path(user)
   end
   let(:submit) { "Submit" } 
 
   describe "with valid information" do
     before do
-      fill_in "Position", with: "New Job"
+      fill_in "Position", with: "New Application"
       fill_in "Company", with: "Acme"
       fill_in "Date applied", with: "01/10/2014"
       fill_in "Link", with: "http://www.example.com"
       fill_in "Description", with: "This is the position description in case it disappears online."
-      fill_in "Notes", with: 'These are additional notes about the job that you want to keep top of mind.' 
+      fill_in "Notes", with: 'These are additional notes about the application that you want to keep top of mind.' 
       fill_in "Name", with: "Joe Smith"
       fill_in "Address", with: "45 Apple Court"
       fill_in "Phone Number", with: "123-456-7891"
       fill_in "Email", with: "joe@smith.com"
     end    
-    it "should create a job" do
-      expect { click_button submit }.to change(Job, :count).by(1)
+    it "should create a application" do
+      expect { click_button submit }.to change(Application, :count).by(1)
     end    
   end
 end
@@ -80,13 +80,13 @@ describe "edit" do
   subject { page }
   before(:each) do
     user = FactoryGirl.create(:user)
-    job = FactoryGirl.create(:job)
+    application = FactoryGirl.create(:application)
     login_as(user, :scope => :user)
-    visit edit_job_path(job)
+    visit edit_application_path(application)
   end
 
   describe "page" do
-    it { should have_selector('h1', 'Edit Job Info') }    
+    it { should have_selector('h1', 'Edit Application Info') }    
   end
   
   describe "with invalid information" do

@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :jobs do
+  factory :applications do
     sequence(:position) {|i| "Job#{i}"}
     company "Company Name"
     date_applied "2014-02-06"

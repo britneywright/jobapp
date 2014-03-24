@@ -18,7 +18,7 @@
   <% if @interviews_by_date[date] %>
     <ul>
       <% @interviews_by_date[date].sort_by! {|i| i.interview_time }.each do |interview| %>
-        <li><%= interview.interview_time %>: <%= link_to interview.job.company, interview %> (<%= interview.kind %>)</li>
+        <li><%= interview.interview_time %>: <%= link_to interview.application.company, interview %> (<%= interview.kind %>)</li>
       <% end %>
     </ul>  
   <% end %>

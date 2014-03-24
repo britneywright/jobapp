@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class JobTest < ActiveSupport::TestCase
+class ApplicationTest < ActiveSupport::TestCase
   def setup
-    @j = jobs(:one)
+    @j = applications(:one)
   end
 
   test "invalid without a position" do
@@ -11,20 +11,20 @@ class JobTest < ActiveSupport::TestCase
   end  
 
   test "valid with all atrributes" do
-    assert @j.valid?, "Job was not valid"
+    assert @j.valid?, "Application was not valid"
   end
   
   test "invalid position gives error message" do
     @j.position = nil
     @j.valid?
-    assert_match /can't be blank/, @j.errors[:position].join, "Presence error not found on job"
+    assert_match /can't be blank/, @j.errors[:position].join, "Presence error not found on application"
   end
 
   test "should respond to interviews" do
     assert_respond_to @j, :interviews
   end
 
-  test "should contain only interviews that belong to job" do
-    assert @j.interviews.all? {|i| i.job == @j}
+  test "should contain only interviews that belong to application" do
+    assert @j.interviews.all? {|i| i.application == @j}
   end  
 end
