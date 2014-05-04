@@ -4,7 +4,7 @@ class ApplicationsController < ApplicationController
 
 	def index
 		@user = User.find(params[:user_id]) 
-		@applications = current_user.applications
+		@applications = current_user.applications.order(date_applied: :desc)
 	end
 
 	def create
