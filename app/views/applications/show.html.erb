@@ -17,9 +17,9 @@
   <% else %>
   <h4>Interviews</h4>
   <ul>
-	  <% @application.interviews.each do |interview| %>
-	  <li><%= link_to "#{interview.kind}: ", interview_path(interview) %> <%= interview.date_interviewed %></li>
-	  <% end %>
+    <% @application.interviews.each do |interview| %>
+    <li><%= link_to "#{interview.kind}: ", interview_path(interview) %> <%= interview.date_interviewed %></li>
+    <% end %>
   </ul>
   <% end %>
 </div>

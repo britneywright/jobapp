@@ -11,7 +11,7 @@ describe "Static pages" do
   describe "Home page" do
     before { visit root_path }
 
-  	let(:heading) { 'Welcome to' }
+    let(:heading) { 'Welcome to' }
     let(:page_title) { '' }
 
     it { should_not have_title('| Home')}
@@ -23,5 +23,5 @@ describe "Static pages" do
         visit root_path
       end
     end
-  end    
-end      
+  end
+end

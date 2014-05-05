@@ -1,14 +1,16 @@
 <div class="col-lg-12">
-<h2>Interview: <%= @interview.date_interviewed %></h2>
-<h3><%= link_to @interview.application.position, application_path(@interview.application_id) %> - <%= @interview.application.company %></h3>
-<p>Time: <%= @interview.interview_time %></p>
-<p>Type: <%= @interview.kind %></p>
-<% if @interview.notes? %>
-<p>Notes: <%= simple_format @interview.notes %></p>
-<%= link_to "View Application", application_path(@interview.application_id) %>
-<% end %>
+  <h2>Interview: <%= @interview.date_interviewed %></h2>
+  <h3><%= link_to @interview.application.position, application_path(@interview.application_id) %> - <%= @interview.application.company %></h3>
+  <p>Time: <%= @interview.interview_time %></p>
+  <p>Type: <%= @interview.kind %></p>
+  <% if @interview.notes? %>
+  <p>Notes: <%= simple_format @interview.notes %></p>
+  <%= link_to "View Application", application_path(@interview.application_id) %>
+  <% end %>
 </div>
 <div class="col-lg-12">
-<small><%= link_to 'Edit', edit_interview_path %> | 
-<%= link_to 'Destroy', interview_path, method: :delete, data: { confirm: 'Are you sure?' } %></small>
+  <small>
+    <%= link_to 'Edit', edit_interview_path %> | 
+    <%= link_to 'Destroy', interview_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </small>
 </div>

@@ -1,29 +1,29 @@
 <div class="col-lg-12">
   <div class= "col-lg-9">
-	  <h2>Your Job Applications</h2>
+    <h2>Your Job Applications</h2>
   </div>
   <div class="col-lg-3">
-	  <span id="newApplicationButton"><%= link_to "Add a New Application", new_user_application_path, class: "btn btn-warning btn" %></span>
+    <span id="newApplicationButton"><%= link_to "Add a New Application", new_user_application_path, class: "btn btn-warning btn" %></span>
   </div>  
 </div>
 <div id=applicationIndex class="col-lg-12">
 <% @applications.each do |application| %>
-	<div class="col-lg-8">
-		<h3><%= link_to application.position, application %>: <%= application.company %></h3>
-		<p>Applied: <%= application.date_applied %></p>
-	</div>
-	<div class="col-lg-4">
+  <div class="col-lg-8">
+    <h3><%= link_to application.position, application %>: <%= application.company %></h3>
+    <p>Applied: <%= application.date_applied %></p>
+  </div>
+  <div class="col-lg-4">
     <% if application.interviews.count == 0 %>
     <% else %>
-		<h4>Interviews</h4>
-			<% application.interviews.each do |interview| %>
-			<p><%= link_to interview.kind, interview %> - <%= interview.date_interviewed %></p>
-			<% end %>
+    <h4>Interviews</h4>
+      <% application.interviews.each do |interview| %>
+      <p><%= link_to interview.kind, interview %> - <%= interview.date_interviewed %></p>
+      <% end %>
     <% end %>  
-	</div>
-	<div class="col-lg-12">
-		<hr>
-	</div>
+  </div>
+  <div class="col-lg-12">
+    <hr>
+  </div>
 <% end %>
 </div>
 <div class="col-lg-12">

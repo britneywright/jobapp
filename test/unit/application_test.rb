@@ -26,5 +26,5 @@ class ApplicationTest < ActiveSupport::TestCase
 
   test "should contain only interviews that belong to application" do
     assert @j.interviews.all? {|i| i.application == @j}
-  end  
+  end
 end
