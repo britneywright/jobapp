@@ -2,8 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8">
-				<h1>Welcome to the Job Apps App</h1>
-				<h2>Keep Track of your Job Applications and Interviews<h2>
+				<h1>Keep Track of Your Job Applications & Interviews</h1>
 					<% if user_signed_in? %>
 				  	<%= link_to "View Applications", user_applications_path(current_user), class: "btn btn-warning btn-lg" %>
 				  	<%= link_to "Track a new job application", new_user_application_path(current_user), class: "btn btn-warning btn-lg" %>
@@ -18,30 +17,30 @@
 </div><!-- /headerwrap -->
 	<div class="container">
 		<div class="row mt centered">
-			<div class="col-lg-6 col-lg-offset-3">
-				<h1>Your Job Search<br/>Organized and Simplified</h1>
-				<h3>Finding jobs to apply for is just one part of the battle. Keeping track of every job you've applied for and interview you've had is a necessary evil. We're making that better.</h3>
+			<div class="col-lg-8 col-lg-offset-2">
+				<h1>Your Job Search Organized & Simplified</h1>
+				<h3>Finding jobs to apply for is just the first part of the battle.<br/>Keeping up with every job application and interview is second.<br/>Track Apps will help your job hunt suck less.</h3>
 			</div>
 		</div><!-- /row -->
-		
+
 		<div class="row mt centered">
 			<div class="col-lg-4">
 				<%= image_tag('bookmark_handy-icon_01.png') %>
-				<h4>Keep Job Info Organized</h4>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+				<h4>Reading Done Right </h4>
+				<p>Say bye, bye to spreadsheet cells and chicken scratch in different places. All your information in a clean, easy to follow, and read format.</p>
 			</div><!--/col-lg-4 -->
 
 			<div class="col-lg-4">
 				<%= image_tag('calendar_handy-icon_04.png') %>
-				<h4>Keep Track of Dates</h4>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+				<h4>Save the Date</h4>
+				<p>Never forget when you applied for a job. When it's high tide for interviews get a weekly glance at what you've had and what's coming up.</p>
 
 			</div><!--/col-lg-4 -->
 
 			<div class="col-lg-4">
 				<%= image_tag('phone_handy-icon_03.png') %>
-				<h4>Keep All Your Data Handy on any Device</h4>
-				<p>Simple, responsive design allows you to view your data on any device. Will come in handy when you need to pull up and review something quickly.</p>
+				<h4>Logs Anywhere, Anytime</h4>
+				<p>Simple, responsive design allows you to view your data on any device. Handy when you need to quickly review a job before your next interview.</p>
 
 			</div><!--/col-lg-4 -->
 		</div><!-- /row -->
@@ -50,7 +49,7 @@
 		<hr>
 		<div class="row centered">
 			<div class="col-lg-6 col-lg-offset-3">
-				  <%= link_to "Join Now", new_user_registration_path, class: "btn btn-warning btn-lg" %>				
+				  <%= link_to "Get Tracking", new_user_registration_path, class: "btn btn-warning btn-lg" %>				
 			</div>
 			<div class="col-lg-3"></div>
 		</div><!-- /row -->			
