@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-	def home
-		render :layout => "home"
-	end	
-end	
+  def home
+    render :layout => "home"
+  end 
+end 

@@ -53,18 +53,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 40px;
+  font-size: 40px;
 }
 
 h3 {
-	color: #95a5a6;
-	font-weight: 400;
+  color: #95a5a6;
+  font-weight: 400;
 }
 
 h4 {
-	color: #95a5a6;
-	font-weight: 400;
-	font-size: 20px;
+  color: #95a5a6;
+  font-weight: 400;
+  font-size: 20px;
 }
 
 /* Paragraph & Typographic */
@@ -115,46 +115,46 @@ a:after {
 }
 
 .navbar-default {
-	background-color: #3498db;
-	border-color: transparent;
+  background-color: #3498db;
+  border-color: transparent;
 }
 
 .navbar-default .navbar-brand {
-	color: white;
+  color: white;
 }
 
 .navbar-default .navbar-nav > li > a {
-	color: white;
+  color: white;
 }
 
 /* Helpers */
 
 .mt {
-	margin-top: 40px;
-	margin-bottom: 40px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .form-control {
-	height: 42px;
-	font-size: 18px;
+  height: 42px;
+  font-size: 18px;
 }
 
 i {
-	margin: 8px;
-	color: #3498db; 
+  margin: 8px;
+  color: #3498db; 
 }
 
 /* HeaderWrap */
 #headerwrap {
-	background-image: url(image-path('background1.jpg'));
-	background-color: #3498db;
-	margin-top: -20px;
-	padding-top:200px;
-	background-attachment: relative;
-	background-position: center center;
-	min-height: 100%;
-	width: 100%;
-	
+  background-image: url(image-path('background1.jpg'));
+  background-color: #3498db;
+  margin-top: -20px;
+  padding-top:200px;
+  background-attachment: relative;
+  background-position: center center;
+  min-height: 100%;
+  width: 100%;
+  
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
@@ -167,12 +167,12 @@ i {
 }
 
 #headerwrap h1 {
-	margin-top: 60px;
-	margin-bottom: 15px;
-	color: white;
-	font-size: 45px;
-	font-weight: 300;
-	letter-spacing: 1px;
+  margin-top: 60px;
+  margin-bottom: 15px;
+  color: white;
+  font-size: 45px;
+  font-weight: 300;
+  letter-spacing: 1px;
   padding: 10px;
   background-color: rgba(0,0,0,0.5);
   border-radius: 4px;
